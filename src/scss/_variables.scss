@@ -1,0 +1,15 @@
+@import './googlefonts';
+
+// COLORS
+$background-color: rgb(190,195,198);
+$box-back: rgb(245,245,241);
+$header-color: darken(rgb(76,128,187), 10%);
+$title-color: lighten(rgb(14,14,8), 15%);
+$text-color: darken($background-color, 40%);
+
+// FONTS
+@include google-font {
+    @include google-font(Open Sans, 300 400 600 700 );
+}
+
+$system-font: "Open Sans", sans-serif;

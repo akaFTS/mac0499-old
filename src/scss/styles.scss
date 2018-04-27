@@ -1,3 +1,7 @@
-@import './googlefonts';
 @import './variables';
-@import './mixins';
+
+body {
+    background-color: $background-color;
+    font-family: $system-font;
+    padding: 10px 10%;
+}
