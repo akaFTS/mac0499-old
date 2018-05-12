@@ -1,0 +1,5 @@
+@import "~scss/mixins";
+
+.professors {
+    @include boxify($course-color);
+}

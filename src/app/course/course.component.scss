@@ -1,0 +1,9 @@
+@import '~scss/mixins';
+
+.course {
+    @include gridify(1fr 2fr, 3fr 2fr);
+
+    &__timeline {
+        @include row-place(1, 2);
+    }
+}

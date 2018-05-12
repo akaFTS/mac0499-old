@@ -2,7 +2,7 @@
 @import '~scss/mixins';
 
 .activities {
-    @include boxify;
+    @include boxify($info-color);
 
     &__list {
         list-style: none;
@@ -20,7 +20,7 @@
         position: relative;
         top: 6px;
         margin-right: 5px;
-        color: $header-color;
+        color: $info-color;
         }
     }
 }

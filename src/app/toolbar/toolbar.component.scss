@@ -1,0 +1,65 @@
+@import "~scss/mixins";
+@import "~scss/variables";
+
+.toolbar {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0 0;
+    padding: 0 20px;
+
+    @media (min-width: 1200px) {
+        padding: 10px 10%;
+    }
+}
+
+.toolbtn {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: none;
+    min-width: 100px;
+    color: white;
+    margin: 0 10px;
+
+    @include boxify;
+    
+    border-radius: 30px;
+
+    &:before {
+        box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    }
+
+    &:after {
+        position: absolute;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: 1;
+        border-radius: 30px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover:after {
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    &__text {
+        font-size: 1.5em;
+        font-weight: 500;
+        margin-left: 5px;
+    }
+
+    &--course {
+        background-color: lighten($course-color, 10%);
+    }
+
+    &--info {
+        background-color: lighten($info-color, 10%);
+    }
+}

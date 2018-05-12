@@ -3,9 +3,13 @@
 // COLORS
 $background-color: #E8E8E8;
 $box-back: #FFF;
-$header-color: #CF2256;
+$header-color: #D32F2F;
 $title-color: lighten(rgb(14,14,8), 15%);
 $text-color: darken($background-color, 40%);
+
+// PAGE-SPECIFIC COLORS
+$course-color: #7B1FA2;
+$info-color: #F57C00;
 
 // FONTS
 @include google-font {
