@@ -1,0 +1,26 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.activities {
+    @include boxify;
+
+    &__list {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 1em; 
+            text-indent: -1.3em;
+        }
+        
+        li::before {
+        content: "•";
+        font-size: 2em;
+        position: relative;
+        top: 6px;
+        margin-right: 5px;
+        color: $header-color;
+        }
+    }
+}

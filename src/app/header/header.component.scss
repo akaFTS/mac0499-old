@@ -2,32 +2,23 @@
 @import '~scss/mixins';
 
 .header {
-    @include boxify;
 
     &__title {
         text-align: center;
         font-size: 1.5em;
-        font-weight: 700;
-        letter-spacing: 0.9;
+        font-weight: 400;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
         margin-top: 10px;
         color: $header-color;
     }
 
-    &__divider {
-        height: 0;
-        border: 0;
-        border-top: 2px solid $background-color;
-        margin: 0 35%;
-    }
-
     &__author {
         text-align: center;
-        margin: 15px 0 10px;
-        color: $text-color;
-
-        b {
-            font-weight: 600;
-        }
+        font-size: 1em;
+        margin: 5px 0 0;
+        font-weight: 300;
+        color: darken($text-color, 20%);
     }
 }
 
