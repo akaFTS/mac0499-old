@@ -15,6 +15,10 @@ import { TimelineComponent } from './course/timeline/timeline.component';
 import { StudentsComponent } from './course/students/students.component';
 import { ProfessorsComponent } from './course/professors/professors.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 const appRoutes: Routes = [
   { path: '', component: CourseComponent },
@@ -38,7 +42,10 @@ library.add(fas);
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

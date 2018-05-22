@@ -1,5 +1,111 @@
 @import "~scss/mixins";
 
+// PROFESSOR COLORS
+
+$ms2: #CDDC39;
+$ms3: #FBC02D;
+$ms5: #FB8C00;
+$ms6: #E53935;
+$ms0: #999999;
+
 .professors {
     @include boxify($course-color);
+
+    &__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__slider mat-slider{
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    &__epoch {
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.4em;
+        color: $course-color;
+        margin-bottom: 20px;
+        margin-top: -15px;
+    }
+}
+
+.professor {
+    flex: 0 0 calc(25% - 10px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__imgwrap {
+        width: 100%;
+        border-radius: 12px;
+        border: 3px solid transparent;        
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        border-radius: 9px;
+    }
+
+    &__class {
+        position: absolute;
+        right: 0;
+        border-radius: 0 12px 0 4px;
+        padding: 2px;
+        color: white;
+        text-align: center;
+    }
+
+    &__name {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    &--ms2 &__imgwrap {
+        border-color: $ms2;
+    }
+
+    &--ms2 &__class {
+        background-color: $ms2;
+    }
+
+    &--ms3 &__imgwrap {
+        border-color: $ms3;
+    }
+
+    &--ms3 &__class {
+        background-color: $ms3;
+    }
+
+    &--ms5 &__imgwrap {
+        border-color: $ms5;
+    }
+
+    &--ms5 &__class {
+        background-color: $ms5;
+    }
+
+    &--ms6 &__imgwrap {
+        border-color: $ms6;
+    }
+
+    &--ms6 &__class {
+        background-color: $ms6;
+    }
+
+    &--ms0 &__imgwrap {
+        border-color: $ms0;
+    }
+
+    &--ms0 &__class {
+        background-color: $ms0;
+    }
+}
+
+.blackwhite {
+    filter: grayscale(100%);
 }

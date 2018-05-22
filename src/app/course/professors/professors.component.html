@@ -1,4 +1,38 @@
 <div class="professors">
   <h4 class="professors__title">Professores</h4>
-  Em breve.
+  <div class="professors__slider">
+    <mat-slider
+    min="1"
+    max="5"
+    tickInterval="1"
+    (change)="onSliderChange($event)"></mat-slider>
+    <div class="professors__epoch">{{curEpoch}}</div>
+  </div>
+  <div class="professors__box">
+    
+    <div [ngClass]="getProfessorClasses(prof)" *ngFor="let prof of curProfessors">
+      <div class="professor__imgwrap">
+        <img class="professor__img" [src]="'/assets/images/' + prof.imgUrl">
+      </div>
+      <div 
+        class="professor__class" 
+        matTooltipPosition="above" 
+        [matTooltip]="getTooltip(prof)">
+        <fa-icon *ngIf="prof.level == 2" icon="star-half" transform="right-3 shrink-3"></fa-icon>
+        <fa-icon *ngIf="prof.level == 3" icon="star" transform="shrink-3"></fa-icon>
+        <fa-layers *ngIf="prof.level == 5" class="fa-fw">
+          <fa-icon icon="star" transform="shrink-6 left-4 down-4"></fa-icon>
+          <fa-icon icon="star" transform="shrink-6 right-4 up-4"></fa-icon>
+        </fa-layers> 
+        <fa-layers *ngIf="prof.level == 6" class="fa-fw">
+          <fa-icon icon="star" transform="shrink-8 left-6 down-5"></fa-icon>
+          <fa-icon icon="star" transform="shrink-4 up-4"></fa-icon>
+          <fa-icon icon="star" transform="shrink-8 right-6 down-5"></fa-icon>
+        </fa-layers> 
+        <fa-icon *ngIf="prof.level == 0" icon="moon" transform="shrink-3"></fa-icon>
+      </div>
+      <span class="professor__name">{{prof.name}}</span>
+    </div>
+
+  </div>
 </div> 
