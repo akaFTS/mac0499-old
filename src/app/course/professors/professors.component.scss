@@ -2,11 +2,12 @@
 
 // PROFESSOR COLORS
 
-$ms2: #CDDC39;
-$ms3: #FBC02D;
-$ms5: #FB8C00;
-$ms6: #E53935;
-$ms0: #999999;
+$ms1: #80DEEA;
+$ms2: #D4E157;
+$ms3: #FDD835;
+$ms5: #FF9800;
+$ms6: #B71C1C;
+$ms0: #AAAAAA;
 
 .professors {
     @include boxify($course-color);
@@ -33,7 +34,7 @@ $ms0: #999999;
 }
 
 .professor {
-    flex: 0 0 calc(25% - 10px);
+    flex: 0 0 calc(100%/6 - 10px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -61,8 +62,16 @@ $ms0: #999999;
     }
 
     &__name {
-        font-size: 0.9em;
+        font-size: 0.85em;
         margin-bottom: 10px;
+    }
+
+    &--ms1 &__imgwrap {
+        border-color: $ms1;
+    }
+
+    &--ms1 &__class {
+        background-color: $ms1;
     }
 
     &--ms2 &__imgwrap {

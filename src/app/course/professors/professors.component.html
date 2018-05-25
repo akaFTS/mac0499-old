@@ -2,8 +2,8 @@
   <h4 class="professors__title">Professores</h4>
   <div class="professors__slider">
     <mat-slider
-    min="1"
-    max="5"
+    min="0"
+    max="4"
     tickInterval="1"
     (change)="onSliderChange($event)"></mat-slider>
     <div class="professors__epoch">{{curEpoch}}</div>
@@ -18,6 +18,7 @@
         class="professor__class" 
         matTooltipPosition="above" 
         [matTooltip]="getTooltip(prof)">
+        <fa-icon *ngIf="prof.level == 1" icon="circle" transform="shrink-7"></fa-icon>
         <fa-icon *ngIf="prof.level == 2" icon="star-half" transform="right-3 shrink-3"></fa-icon>
         <fa-icon *ngIf="prof.level == 3" icon="star" transform="shrink-3"></fa-icon>
         <fa-layers *ngIf="prof.level == 5" class="fa-fw">

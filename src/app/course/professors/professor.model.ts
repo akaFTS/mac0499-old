@@ -1,3 +1,4 @@
 export class Professor {
-    constructor(public name: string, public imgUrl: string, public level: number) {}
+    constructor(public name: string, public imgUrl: string, public level: number = 0) {
+    }
 }

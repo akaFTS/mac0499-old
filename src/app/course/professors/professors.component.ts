@@ -14,24 +14,24 @@ export class ProfessorsComponent implements OnInit {
   constructor(private professorsService: ProfessorsService) { }
 
   ngOnInit() {
-    this.onSliderChange({value: 1});
+    this.onSliderChange({value: 0});
   }
 
   onSliderChange(event) {
     switch (event.value) {
-      case 1:
+      case 0:
         this.curEpoch = '1972';
         break;
+      case 1:
+        this.curEpoch = '1987';
+        break;
       case 2:
-        this.curEpoch = '1983';
+        this.curEpoch = '1995';
         break;
       case 3:
-        this.curEpoch = '2002';
+        this.curEpoch = '2007';
         break;
       case 4:
-        this.curEpoch = '2010';
-        break;
-      case 5:
         this.curEpoch = '2018';
     }
     this.curProfessors = this.professorsService.getProfessorsFromEpoch(event.value);
@@ -43,6 +43,8 @@ export class ProfessorsComponent implements OnInit {
 
   getTooltip(prof: Professor): string {
     switch (prof.level) {
+      case 1:
+        return 'Auxiliar (MS-1)';
       case 2:
         return 'Assistente (MS-2)';
       case 3:
