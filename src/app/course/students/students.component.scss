@@ -1,5 +1,17 @@
 @import "~scss/mixins";
+@import "~scss/variables";
 
 .students {
     @include boxify($course-color);
+
+    .information {
+        @include align-children();
+        margin-top: 15px;
+        font-size: 0.9em;
+
+        &__icon {
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+    }
 }

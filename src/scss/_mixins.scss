@@ -54,3 +54,9 @@
         font-size: 1.3em;
     }
 }
+
+/* Use flex to align children side to side */
+@mixin align-children() {
+    display: flex;
+    align-items: center;
+}

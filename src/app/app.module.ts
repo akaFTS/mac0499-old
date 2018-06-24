@@ -2,8 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,16 +22,13 @@ import { TimelineComponent } from './course/timeline/timeline.component';
 import { StudentsComponent } from './course/students/students.component';
 import { ProfessorsComponent } from './course/professors/professors.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 const appRoutes: Routes = [
   { path: '', component: CourseComponent },
   { path: 'info', component: InformationComponent }
 ];
-library.add(fas);
+library.add(fas, far);
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ library.add(fas);
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatSliderModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
