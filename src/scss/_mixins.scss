@@ -56,7 +56,15 @@
 }
 
 /* Use flex to align children side to side */
-@mixin align-children() {
+@mixin column-align() {
     display: flex;
     align-items: center;
+}
+
+/* Use flex to stack children side to side */
+@mixin row-align() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

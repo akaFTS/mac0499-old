@@ -22,6 +22,7 @@ import { TimelineComponent } from './course/timeline/timeline.component';
 import { StudentsComponent } from './course/students/students.component';
 import { ProfessorsComponent } from './course/professors/professors.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MomentPipe } from './course/timeline/moment.pipe';
 
 
 const appRoutes: Routes = [
@@ -41,7 +42,8 @@ library.add(fas, far);
     TimelineComponent,
     StudentsComponent,
     ProfessorsComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    MomentPipe
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ export class ProfessorsComponent implements OnInit {
   constructor(private professorsService: ProfessorsService) { }
 
   ngOnInit() {
-    this.onSliderChange({value: 0});
+    this.onSliderChange({value: 4});
   }
 
   onSliderChange(event) {

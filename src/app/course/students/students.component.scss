@@ -5,7 +5,7 @@
     @include boxify($course-color);
 
     .information {
-        @include align-children();
+        @include column-align;
         margin-top: 15px;
         font-size: 0.9em;
 

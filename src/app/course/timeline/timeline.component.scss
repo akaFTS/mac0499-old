@@ -2,4 +2,71 @@
 
 .timeline {
     @include boxify($course-color);
+    padding-bottom: 20px;
+
+    .record {
+        @include column-align;
+        align-items: stretch;
+
+        .line {
+            @include row-align;
+            flex: 1 1 0;
+
+            &__top, &__bottom {
+                flex: 1 1 0;
+                width: 2px;
+                background-color: #CCC;
+            }
+
+            &__bullet {
+                color: $course-color;
+            }
+        }
+
+        .entry {
+            flex: 4 1 0;
+            padding: 20px 0;
+
+            &__date {
+                margin: 0;
+                font-weight: bold;
+                color: darken($text-color, 10%);
+            }
+
+            &__text {
+                margin: 0;
+            }
+        }
+    }
+
+    .record--year {
+        .line {
+            flex: 0 0 20%;
+            min-height: 70px;
+            &__bullet {
+                color: white;
+                background-color: $course-color;
+                border-radius: 20px;
+                font-weight: bold;
+                font-size: 1.05em;
+                padding: 3px 8px;
+            }
+        }
+    }
+
+    .record--milestone {
+        .entry {
+            &__text {
+               font-weight: bold;
+               color: darken($text-color, 30%);
+               font-size: 1.25em;
+            }
+        } 
+        
+        .line {
+            &__bullet {
+                padding: 3px 0;
+            }
+        }
+    }
 }

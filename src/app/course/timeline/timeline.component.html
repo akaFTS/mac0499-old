@@ -1,4 +1,45 @@
 <div class="timeline">
-  <h4 class="timeline__title">Timeline</h4>
-  Em breve.
+    <h4 class="timeline__title">Timeline</h4>
+    <ng-container *ngFor="let year of years">
+        <div class="record record--year">
+            <div class="line">
+                <div class="line__top"></div>
+                <div class="line__bullet">
+                    {{year.year}}
+                </div>
+                <div class="line__bottom"></div>
+            </div>
+        </div>
+        <div 
+            *ngFor="let record of year.records"
+            class="record" 
+            [ngClass]="record.isFeatured ? 'record--milestone' : ''">
+                <div class="line">
+                    <div class="line__top"></div>
+                    <div class="line__bullet">
+                        <fa-icon 
+                            icon="circle" 
+                            transform="shrink-2" 
+                            *ngIf="!record.isFeatured">
+                        </fa-icon>
+                        <fa-layers class="fa-2x" *ngIf="record.isFeatured">
+                            <fa-icon icon="circle"></fa-icon>
+                            <fa-icon 
+                                icon="star" 
+                                inverse="true" 
+                                transform="shrink-6 left-1">
+                            </fa-icon>
+                        </fa-layers>                    
+                    </div>
+                    <div class="line__bottom"></div>
+                </div>
+                <div class="entry">
+                    <p class="entry__date">{{ record.date | moment:'D [de] MMMM'}}</p>
+                    <p class="entry__text">
+                        {{record.text}}
+                    </p>
+                </div>
+        </div>
+    </ng-container>
+
 </div> 
