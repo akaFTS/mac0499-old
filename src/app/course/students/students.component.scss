@@ -3,6 +3,7 @@
 
 .students {
     @include boxify($course-color);
+    padding-bottom: 20px;
 
     .information {
         @include column-align;

@@ -13,7 +13,8 @@
         <div 
             *ngFor="let record of year.records"
             class="record" 
-            [ngClass]="record.isFeatured ? 'record--milestone' : ''">
+            [ngClass]="{'record--milestone' : record.featureLevel ===  1,
+                        'record--trivia'    : record.featureLevel === -1}">
                 <div class="line">
                     <div class="line__top"></div>
                     <div class="line__bullet">
@@ -34,7 +35,7 @@
                     <div class="line__bottom"></div>
                 </div>
                 <div class="entry">
-                    <p class="entry__date">{{ record.date | moment:'D [de] MMMM'}}</p>
+                    <p class="entry__date" *ngIf="record.date">{{ record.date | moment:'D [de] MMMM'}}</p>
                     <p class="entry__text">
                         {{record.text}}
                     </p>

@@ -20,12 +20,13 @@
 
             &__bullet {
                 color: $course-color;
+                padding: 2px;
             }
         }
 
         .entry {
             flex: 4 1 0;
-            padding: 20px 0;
+            padding: 10px 0;
 
             &__date {
                 margin: 0;
@@ -42,7 +43,7 @@
     .record--year {
         .line {
             flex: 0 0 20%;
-            min-height: 70px;
+            min-height: 50px;
             &__bullet {
                 color: white;
                 background-color: $course-color;
@@ -66,6 +67,26 @@
         .line {
             &__bullet {
                 padding: 3px 0;
+            }
+        }
+    }
+
+    .record--trivia {
+        .entry {
+            &__text {
+                font-style: italic;
+                color: lighten($text-color, 10%);
+            }
+
+            &__date {
+                color: lighten($text-color, 15%);
+            }
+        } 
+        
+        .line {
+            &__bullet {
+                color: #999;
+                font-size: 0.8em;
             }
         }
     }
