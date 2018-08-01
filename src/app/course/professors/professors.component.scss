@@ -1,120 +1,70 @@
-@import "~scss/mixins";
-
-// PROFESSOR COLORS
-
-$ms1: #80DEEA;
-$ms2: #D4E157;
-$ms3: #FDD835;
-$ms5: #FF9800;
-$ms6: #B71C1C;
-$ms0: #AAAAAA;
+@import '~scss/mixins';
 
 .professors {
-    @include boxify($course-color);
+  @include boxify($course-color);
 
-    &__box {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+  &__box {
+    position: relative;
+  }
+
+  &__canvas {
+    background-color: darken($box-back, 5%);
+    border-radius: 12px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  &__slider mat-slider {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  &__epoch {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.4em;
+    color: $course-color;
+    margin-bottom: 20px;
+    margin-top: -15px;
+  }
+}
+
+.canvas {
+  &__header {
+    background-color: white;
+    border-radius: 12px 12px 0 0;
+    width: auto;
+    padding: 2px 5px;
+    color: white;
+    font-weight: 500;
+
+    &--ms1 {
+      background-color: $ms1;
     }
 
-    &__slider mat-slider{
-        width: 100%;
-        padding-bottom: 0;
+    &--ms2 {
+      background-color: $ms2;
     }
 
-    &__epoch {
-        text-align: center;
-        font-weight: 600;
-        font-size: 1.4em;
-        color: $course-color;
-        margin-bottom: 20px;
-        margin-top: -15px;
+    &--ms3 {
+      background-color: $ms3;
     }
+
+    &--ms5 {
+      background-color: $ms5;
+    }
+
+    &--ms6 {
+      background-color: $ms6;
+    }
+
+    &--ms0 {
+      background-color: $ms0;
+    }
+  }
 }
 
 .professor {
-    flex: 0 0 calc(100%/6 - 10px);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__imgwrap {
-        width: 100%;
-        border-radius: 12px;
-        border: 3px solid transparent;        
-    }
-
-    &__img {
-        display: block;
-        width: 100%;
-        border-radius: 9px;
-    }
-
-    &__class {
-        position: absolute;
-        right: 0;
-        border-radius: 0 12px 0 4px;
-        padding: 2px;
-        color: white;
-        text-align: center;
-    }
-
-    &__name {
-        font-size: 0.85em;
-        margin-bottom: 10px;
-    }
-
-    &--ms1 &__imgwrap {
-        border-color: $ms1;
-    }
-
-    &--ms1 &__class {
-        background-color: $ms1;
-    }
-
-    &--ms2 &__imgwrap {
-        border-color: $ms2;
-    }
-
-    &--ms2 &__class {
-        background-color: $ms2;
-    }
-
-    &--ms3 &__imgwrap {
-        border-color: $ms3;
-    }
-
-    &--ms3 &__class {
-        background-color: $ms3;
-    }
-
-    &--ms5 &__imgwrap {
-        border-color: $ms5;
-    }
-
-    &--ms5 &__class {
-        background-color: $ms5;
-    }
-
-    &--ms6 &__imgwrap {
-        border-color: $ms6;
-    }
-
-    &--ms6 &__class {
-        background-color: $ms6;
-    }
-
-    &--ms0 &__imgwrap {
-        border-color: $ms0;
-    }
-
-    &--ms0 &__class {
-        background-color: $ms0;
-    }
-}
-
-.blackwhite {
-    filter: grayscale(100%);
+  position: absolute;
+  transition: all 0.5s ease-out, opacity 0.3s ease-in;
 }

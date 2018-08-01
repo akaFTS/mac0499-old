@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfessorsService } from './professors.service';
 import { Professor } from './professor.model';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-professors',
@@ -9,53 +10,44 @@ import { Professor } from './professor.model';
 })
 export class ProfessorsComponent implements OnInit {
   curProfessors: Professor[];
-  curEpoch = '1972';
+  allProfessors: Professor[];
+  curEpoch;
 
-  constructor(private professorsService: ProfessorsService) { }
+  constructor(private professorsService: ProfessorsService) {}
 
   ngOnInit() {
-    this.onSliderChange({value: 4});
+    this.professorsService.getAllProfessors().subscribe(professors => {
+      this.allProfessors = professors;
+    });
+
+    this.onSliderChange({ value: 0 });
+  }
+
+  transladeY(level, y) {
+    if (level < 4) {
+      level++;
+    }
+
+    return (6 - level) * 140 + y;
   }
 
   onSliderChange(event) {
-    switch (event.value) {
-      case 0:
-        this.curEpoch = '1972';
-        break;
-      case 1:
-        this.curEpoch = '1987';
-        break;
-      case 2:
-        this.curEpoch = '1995';
-        break;
-      case 3:
-        this.curEpoch = '2007';
-        break;
-      case 4:
-        this.curEpoch = '2018';
-    }
-    this.curProfessors = this.professorsService.getProfessorsFromEpoch(event.value);
-  }
+    this.curEpoch = event.value + 1972;
 
-  getProfessorClasses(prof: Professor): string {
-    return 'professor professor--ms' + prof.level;
-  }
+    const professors$ = this.professorsService.getAllProfessors();
+    const codes$ = this.professorsService.getProfessorsFromYear(this.curEpoch);
 
-  getTooltip(prof: Professor): string {
-    switch (prof.level) {
-      case 1:
-        return 'Auxiliar (MS-1)';
-      case 2:
-        return 'Assistente (MS-2)';
-      case 3:
-        return 'Doutor (MS-3)';
-      case 5:
-        return 'Associado (MS-5)';
-      case 6:
-        return 'Titular (MS-6)';
-      default:
-        return 'Aposentado';
-    }
-  }
+    forkJoin(professors$, codes$).subscribe(([professors, codes]) => {
+      this.allProfessors.map(prof => {
+        prof.enabled = false;
 
+        if (Object.keys(codes).includes(prof.code)) {
+          prof.enabled = true;
+          prof.level = codes[prof.code];
+          prof.posX = prof.defX + '%';
+          prof.posY = this.transladeY(prof.level, prof.defY) + 'px';
+        }
+      });
+    });
+  }
 }
