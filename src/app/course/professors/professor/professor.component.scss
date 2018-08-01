@@ -1,0 +1,53 @@
+@import '~scss/_mixins';
+
+.professor {
+  @include row-align;
+
+  &:hover &__name {
+    display: block;
+  }
+}
+
+.professor__name {
+  background-color: #666;
+  opacity: 0.6;
+  color: white;
+  font-weight: 500;
+  padding: 0 5px;
+  border-radius: 20px;
+  font-size: 0.7em;
+  max-width: 56px;
+  display: none;
+}
+
+.professor__img {
+  height: 50px;
+  border-radius: 100%;
+  border: 3px solid white;
+  margin-bottom: 2px;
+  transition: all 0.5s ease-out;
+
+  &--ms0 {
+    border-color: $ms0;
+  }
+
+  &--ms1 {
+    border-color: $ms1;
+  }
+
+  &--ms2 {
+    border-color: $ms2;
+  }
+
+  &--ms3 {
+    border-color: $ms3;
+  }
+
+  &--ms5 {
+    border-color: $ms5;
+  }
+
+  &--ms6 {
+    border-color: $ms6;
+  }
+}
