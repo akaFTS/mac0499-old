@@ -11,7 +11,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PropposalComponent } from './information/propposal/propposal.component';
@@ -23,7 +22,8 @@ import { StudentsComponent } from './course/students/students.component';
 import { ProfessorsComponent } from './course/professors/professors.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MomentPipe } from './course/timeline/moment.pipe';
-
+import { ProfessorComponent } from './course/professors/professor/professor.component';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: CourseComponent },
@@ -43,11 +43,13 @@ library.add(fas, far);
     StudentsComponent,
     ProfessorsComponent,
     ToolbarComponent,
-    MomentPipe
+    MomentPipe,
+    ProfessorComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatSliderModule,
@@ -57,4 +59,4 @@ library.add(fas, far);
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
