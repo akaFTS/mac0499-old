@@ -13,6 +13,6 @@ export class ProfessorComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.path = '/assets/images/' + this.professor.code + '.jpg';
+    this.path = 'assets/images/' + this.professor.code + '.jpg';
   }
 }
