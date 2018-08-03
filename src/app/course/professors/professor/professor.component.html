@@ -1,4 +1,4 @@
 <div class="professor">
     <img class="professor__img" [ngClass]="'professor__img--ms' + professor.level" [src]="path" (error)="path = '/assets/images/default.png'">
-    <div class="professor__name">Carlinhos</div>
+    <div class="professor__name">{{professor.name}}</div>
 </div>

@@ -189,4 +189,8 @@ export class ProfessorsService {
   getProfessorsFromYear(year: number): Observable<any> {
     return this.httpClient.get('assets/data/professors/' + year + '.json');
   }
+
+  getSlots(): Observable<any> {
+    return this.httpClient.get('assets/data/slots.json');
+  }
 }

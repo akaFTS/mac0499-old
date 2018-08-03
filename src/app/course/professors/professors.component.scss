@@ -10,8 +10,8 @@
   &__canvas {
     background-color: darken($box-back, 5%);
     border-radius: 12px;
-    height: 120px;
     margin-bottom: 20px;
+    transition: height 0.3s ease-out;
   }
 
   &__slider mat-slider {
@@ -66,5 +66,5 @@
 
 .professor {
   position: absolute;
-  transition: all 0.5s ease-out, opacity 0.3s ease-in;
+  transition: all 0.5s ease-out, opacity 0.2s ease-in;
 }

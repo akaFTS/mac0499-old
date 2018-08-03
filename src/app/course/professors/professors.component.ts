@@ -13,6 +13,8 @@ export class ProfessorsComponent implements OnInit {
   allProfessors: Professor[];
   curEpoch;
 
+  canvasSizes = [1, 1, 1, 1, 0, 1, 1];
+
   constructor(private professorsService: ProfessorsService) {}
 
   ngOnInit() {
@@ -23,12 +25,19 @@ export class ProfessorsComponent implements OnInit {
     this.onSliderChange({ value: 0 });
   }
 
-  transladeY(level, y) {
-    if (level < 4) {
-      level++;
-    }
+  getCanvasSize(level) {
+    return this.canvasSizes[level] * 50 + 50 + 'px';
+  }
 
-    return (6 - level) * 140 + y;
+  transladeY(level, y) {
+    let pad = 0;
+    for (let i = 6; i > level; i--) {
+      if (i === 4) {
+        continue;
+      }
+      pad += (this.canvasSizes[i] + 1) * 50 + 20;
+    }
+    return pad + y;
   }
 
   onSliderChange(event) {
@@ -36,18 +45,45 @@ export class ProfessorsComponent implements OnInit {
 
     const professors$ = this.professorsService.getAllProfessors();
     const codes$ = this.professorsService.getProfessorsFromYear(this.curEpoch);
+    const slots$ = this.professorsService.getSlots();
 
-    forkJoin(professors$, codes$).subscribe(([professors, codes]) => {
-      this.allProfessors.map(prof => {
-        prof.enabled = false;
+    let levelCaps = [0, 0, 0, 0, 0, 0, 0];
+    forkJoin(professors$, codes$, slots$).subscribe(
+      ([professors, codes, slots]) => {
+        Object.keys(codes).map(code => {
+          levelCaps[codes[code]]++;
+        });
+        levelCaps.map((size, index) => this.adjustCanvasSize(size, index));
+        levelCaps = [0, 0, 0, 0, 0, 0, 0];
 
-        if (Object.keys(codes).includes(prof.code)) {
-          prof.enabled = true;
-          prof.level = codes[prof.code];
-          prof.posX = prof.defX + '%';
-          prof.posY = this.transladeY(prof.level, prof.defY) + 'px';
-        }
-      });
-    });
+        this.allProfessors.map(prof => {
+          prof.enabled = false;
+
+          if (Object.keys(codes).includes(prof.code)) {
+            prof.enabled = true;
+            prof.level = codes[prof.code];
+
+            const position = levelCaps[prof.level];
+            prof.posX = slots[position][0] + '%';
+            prof.posY = this.transladeY(prof.level, slots[position][1]) + 'px';
+            levelCaps[prof.level]++;
+          }
+        });
+      }
+    );
+  }
+
+  adjustCanvasSize(size, level) {
+    if (size <= 6) {
+      this.canvasSizes[level] = 1;
+    } else if (size <= 11) {
+      this.canvasSizes[level] = 2;
+    } else if (size <= 17) {
+      this.canvasSizes[level] = 3;
+    } else if (size <= 22) {
+      this.canvasSizes[level] = 4;
+    } else {
+      this.canvasSizes[level] = 5;
+    }
   }
 }
