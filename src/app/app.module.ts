@@ -24,10 +24,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MomentPipe } from './course/timeline/moment.pipe';
 import { ProfessorComponent } from './course/professors/professor/professor.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { ClassesComponent } from './classes/classes.component';
+import { ClassesListComponent } from './classes/classes-list/classes-list.component';
+import { AreaYearComponent } from './classes/area-year/area-year.component';
+import { YearpickerComponent } from './shared/yearpicker/yearpicker.component';
 
 const appRoutes: Routes = [
   { path: '', component: CourseComponent },
-  { path: 'info', component: InformationComponent }
+  { path: 'info', component: InformationComponent },
+  { path: 'classes', component: ClassesComponent }
 ];
 library.add(fas, far);
 
@@ -44,7 +49,11 @@ library.add(fas, far);
     ProfessorsComponent,
     ToolbarComponent,
     MomentPipe,
-    ProfessorComponent
+    ProfessorComponent,
+    ClassesComponent,
+    ClassesListComponent,
+    AreaYearComponent,
+    YearpickerComponent
   ],
   imports: [
     BrowserModule,

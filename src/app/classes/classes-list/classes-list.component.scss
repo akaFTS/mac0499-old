@@ -1,0 +1,6 @@
+@import '~scss/mixins';
+
+.classeslist {
+  @include boxify($classes-color);
+  padding-bottom: 20px;
+}

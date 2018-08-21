@@ -1,0 +1,6 @@
+@import '~scss/mixins';
+
+.areayear {
+  @include boxify($classes-color);
+  padding-bottom: 20px;
+}
