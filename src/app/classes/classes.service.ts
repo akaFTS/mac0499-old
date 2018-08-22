@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Class } from './class.model';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core'
+import { Classe } from './classe.model'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClassesService {
   constructor(public httpClient: HttpClient) {}
 
-  public getClassesByYear(year: number): Observable<Class[]> {
-    return this.httpClient.get<Class[]>('assets/data/professors.json');
+  public getAllClasses() {
+    return this.httpClient.get<Classe[]>('assets/data/classes.json')
+  }
+
+  public getClassCodesByYear(year: number) {
+    return this.httpClient.get<string[]>(`assets/data/classes/${year}.json`)
   }
 }

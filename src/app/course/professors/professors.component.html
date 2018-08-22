@@ -1,8 +1,7 @@
 <div class="professors">
   <h4 class="professors__title">Professores</h4>
-  <div class="professors__slider">
-    <mat-slider min="0" max="46" tickInterval="1" value="0" (change)="onSliderChange($event)"></mat-slider>
-    <div class="professors__epoch">{{curEpoch}}</div>
+  <div class="mb4">
+    <app-yearpicker (yearChanged)="handleYearChange($event)"></app-yearpicker>
   </div>
 
   <div class="professors__box">

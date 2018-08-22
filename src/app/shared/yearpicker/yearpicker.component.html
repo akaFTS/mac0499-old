@@ -1,5 +1,5 @@
-<div class="flex justify-center">
-  <fa-icon class="f5 mt1 pointer" icon="chevron-left" (click)="handleLeftClick()"></fa-icon>
-  <div class="f3 b mh4 dark-gray">{{currentYear}}</div>
-  <fa-icon class="f5 mt1 pointer" icon="chevron-right"></fa-icon>
+<div class="flex justify-center items-center">
+  <fa-icon class="f4 pointer" icon="chevron-left" (click)="handleLeftClick()" *ngIf="currentYear > 1972"></fa-icon>
+  <input class="f3 b mh4 dark-gray ba br2 b--light-gray ph2 pv1 w3 tc" [(ngModel)]="inputYear" (blur)="setYear()" />
+  <fa-icon class="f4 pointer" icon="chevron-right" (click)="handleRightClick()" *ngIf="currentYear < 2018"></fa-icon>
 </div>
