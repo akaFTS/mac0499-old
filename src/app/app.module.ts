@@ -29,6 +29,8 @@ import { ClassesComponent } from './classes/classes.component'
 import { ClassesListComponent } from './classes/classes-list/classes-list.component'
 import { AreaYearComponent } from './classes/area-year/area-year.component'
 import { YearpickerComponent } from './shared/yearpicker/yearpicker.component'
+import { AreaPipe } from './classes/classes-list/area.pipe'
+import { YearPipe } from './classes/classes-list/year.pipe'
 
 const appRoutes: Routes = [
   { path: '', component: CourseComponent },
@@ -50,6 +52,8 @@ library.add(fas, far)
     ProfessorsComponent,
     ToolbarComponent,
     MomentPipe,
+    AreaPipe,
+    YearPipe,
     ProfessorComponent,
     ClassesComponent,
     ClassesListComponent,

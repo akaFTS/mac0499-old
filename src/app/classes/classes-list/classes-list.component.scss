@@ -4,3 +4,9 @@
   @include boxify($classes-color);
   padding-bottom: 20px;
 }
+
+.triangle {
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left-width: 6px;
+}

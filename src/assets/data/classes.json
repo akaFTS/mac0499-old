@@ -1,12 +1,32 @@
 [
   {
-    "code": "MAC0218",
-    "name": "Técnicas de Programação II",
+    "code": "MAC0101",
+    "name": "Integração na Universidade e na Profissão",
+    "area": 3
+  },
+  {
+    "code": "MAC0102",
+    "name": "Caminhos no Bacharelado em Ciência da Computação",
+    "area": 0
+  },
+  {
+    "code": "MAC0105",
+    "name": "Fundamentos de Matemática para a Computação",
     "area": 0
   },
   {
     "code": "MAC0110",
     "name": "Introdução à Computação",
     "area": 1
+  },
+  {
+    "code": "MAC0121",
+    "name": "Algoritmos e Estruturas de Dados I",
+    "area": 0
+  },
+  {
+    "code": "MAC0209",
+    "name": "Modelagem e Simulação",
+    "area": 3
   }
 ]

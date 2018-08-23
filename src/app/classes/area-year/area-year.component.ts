@@ -29,7 +29,7 @@ export class AreaYearComponent implements OnInit {
   }
 
   getBallSize(area: number) {
-    return area * 2 + 50 + 'px'
+    return `${this.classNumbers[area] * 3 + 50}px`
   }
 
   ngOnInit() {}
