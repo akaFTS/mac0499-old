@@ -45,6 +45,8 @@ export class ClassesListComponent implements OnInit {
         return 'bg-pink'
       case 3:
         return 'bg-orange'
+      case 4:
+        return 'bg-light-silver'
     }
   }
 

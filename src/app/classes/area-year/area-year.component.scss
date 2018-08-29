@@ -4,3 +4,7 @@
   @include boxify($classes-color);
   padding-bottom: 20px;
 }
+
+.ball {
+  transition: all 0.3s;
+}

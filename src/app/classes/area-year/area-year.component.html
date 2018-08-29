@@ -1,26 +1,31 @@
 <div class="areayear">
   <h4 class="areayear__title">Áreas</h4>
   <app-yearpicker (yearChanged)="handleYearChange($event)"></app-yearpicker>
-  <div class="relative h5">
-    <div class="bg-blue br-100 absolute white o-70 flex flex-column align-center" [style.top]="'20%'" [style.left]="'10%'" [style.width]="getBallSize(0)"
-      [style.height]="getBallSize(0)">
+  <div class="relative h5 mb5">
+    <div class="bg-blue br-100 absolute white o-70 flex flex-column align-center justify-center ball" [style.top]="'10%'" [style.left]="'0%'"
+      [style.width]="getBallSize(0)" [style.height]="getBallSize(0)">
       <span class="f7 mt2 center">Teoria</span>
       <span class="f3 b center">{{classNumbers[0]}}</span>
     </div>
-    <div class="bg-green br-100 absolute white o-70 flex flex-column align-center" [style.top]="'50%'" [style.left]="'70%'" [style.width]="getBallSize(1)"
-      [style.height]="getBallSize(1)">
+    <div class="bg-green br-100 absolute white o-70 flex flex-column align-center justify-center ball" [style.top]="'50%'" [style.left]="'10%'"
+      [style.width]="getBallSize(1)" [style.height]="getBallSize(1)">
       <span class="f7 mt2 center">Sistemas</span>
       <span class="f3 b center">{{classNumbers[1]}}</span>
     </div>
-    <div class="bg-pink br-100 absolute white o-70 flex flex-column align-center" [style.top]="'70%'" [style.left]="'30%'" [style.width]="getBallSize(2)"
-      [style.height]="getBallSize(2)">
+    <div class="bg-pink br-100 absolute white o-70 flex flex-column align-center justify-center ball" [style.top]="'70%'" [style.left]="'70%'"
+      [style.width]="getBallSize(2)" [style.height]="getBallSize(2)">
       <span class="f7 mt2 center">IA</span>
       <span class="f3 b center">{{classNumbers[2]}}</span>
     </div>
-    <div class="bg-orange br-100 absolute white o-70 flex flex-column align-center" [style.top]="'20%'" [style.left]="'50%'"
+    <div class="bg-orange br-100 absolute white o-70 flex flex-column align-center justify-center ball" [style.top]="'20%'" [style.left]="'50%'"
       [style.width]="getBallSize(3)" [style.height]="getBallSize(3)">
       <span class="f7 mt2 center nowrap">E-science</span>
       <span class="f3 b center">{{classNumbers[3]}}</span>
     </div>
+    <div class="bg-light-silver br-100 absolute white o-70 flex flex-column align-center justify-center ball" [style.top]="'100%'" [style.left]="'60%'"
+    [style.width]="getBallSize(4)" [style.height]="getBallSize(4)">
+    <span class="f7 mt2 center nowrap">Outras</span>
+    <span class="f3 b center">{{classNumbers[4]}}</span>
+  </div>
   </div>
 </div>

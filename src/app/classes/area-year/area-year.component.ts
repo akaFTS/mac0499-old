@@ -9,7 +9,7 @@ import { forkJoin } from 'rxjs'
 })
 export class AreaYearComponent implements OnInit {
   currentYear: number
-  classNumbers = [0, 0, 0, 0]
+  classNumbers = [0, 0, 0, 0, 0]
 
   constructor(private classesService: ClassesService) {}
 
@@ -20,10 +20,12 @@ export class AreaYearComponent implements OnInit {
     const classes$ = this.classesService.getAllClasses()
 
     forkJoin(year$, classes$).subscribe(([yearCodes, classes]) => {
-      this.classNumbers = [0, 0, 0, 0]
+      this.classNumbers = [0, 0, 0, 0, 0]
       yearCodes.map(yearCode => {
-        const area = classes.find(classe => classe.code === yearCode).area
-        this.classNumbers[area]++
+        const classe = classes.find(classe => classe.code === yearCode)
+        if (classe) {
+          this.classNumbers[classe.area]++
+        }
       })
     })
   }

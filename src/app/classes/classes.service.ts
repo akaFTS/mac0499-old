@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Classe } from './classe.model'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
+import { forkJoin } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
@@ -10,14 +11,31 @@ export class ClassesService {
   constructor(public httpClient: HttpClient) {}
 
   public getAllClasses() {
-    return this.httpClient.get<Classe[]>('assets/data/classes.json').pipe(
-      map(classes => {
-        classes.map(classe => {
-          classe.beginYear = Math.floor(Math.random() * 46) + 1972
-          classe.endYear =
-            Math.floor(Math.random() * (2018 - classe.beginYear)) +
-            classe.beginYear
+    const yearPromises = []
+    for (let i = 2010; i <= 2018; i++) {
+      yearPromises.push(this.httpClient.get(`assets/data/classes/${i}.json`))
+    }
+    const classesPromise = this.httpClient.get<Classe[]>(
+      'assets/data/classes.json',
+    )
+
+    return forkJoin([classesPromise, ...yearPromises]).pipe(
+      map(([classes, ...years]) => {
+        years.map((year, index) => {
+          year.map(code => {
+            const classe = classes.find(classe => classe.code === `MAC0${code}`)
+            if (!classe) {
+              console.log(
+                'faltando materia: ' + code + ' no ano ' + (index + 2010),
+              )
+              return
+            }
+
+            classe.endYear = index + 2010
+            classe.beginYear = classe.beginYear || index + 2010
+          })
         })
+
         return classes
       }),
     )
