@@ -75,6 +75,16 @@
     "area": 1
   },
   {
+    "code": "MAC0221",
+    "name": "Construção de Montadores",
+    "area": 0
+  },
+  {
+    "code": "MAC0222",
+    "name": "Sistemas de Programação",
+    "area": 1
+  },
+  {
     "code": "MAC0228",
     "name": "Combinatória e Teoria dos Grafos",
     "area": 0
@@ -103,6 +113,11 @@
     "code": "MAC0310",
     "name": "Matemática Concreta",
     "area": 0
+  },
+  {
+    "code": "MAC0312",
+    "name": "Processamento de Dados Administrativos",
+    "area": 1
   },
   {
     "code": "MAC0315",
@@ -263,6 +278,11 @@
     "code": "MAC0375",
     "name": "Biologia de Sistemas",
     "area": 3
+  },
+  {
+    "code": "MAC0410",
+    "name": "Introdução à Compilação",
+    "area": 1
   },
   {
     "code": "MAC0412",

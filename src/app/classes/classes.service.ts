@@ -12,7 +12,7 @@ export class ClassesService {
 
   public getAllClasses() {
     const yearPromises = []
-    for (let i = 2010; i <= 2018; i++) {
+    for (let i = 1991; i <= 2018; i++) {
       yearPromises.push(this.httpClient.get(`assets/data/classes/${i}.json`))
     }
     const classesPromise = this.httpClient.get<Classe[]>(
@@ -26,13 +26,13 @@ export class ClassesService {
             const classe = classes.find(classe => classe.code === `MAC0${code}`)
             if (!classe) {
               console.log(
-                'faltando materia: ' + code + ' no ano ' + (index + 2010),
+                'faltando materia: ' + code + ' no ano ' + (index + 1991),
               )
               return
             }
 
-            classe.endYear = index + 2010
-            classe.beginYear = classe.beginYear || index + 2010
+            classe.endYear = index + 1991
+            classe.beginYear = classe.beginYear || index + 1991
           })
         })
 
