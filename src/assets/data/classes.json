@@ -365,6 +365,16 @@
     "area": 0
   },
   {
+    "code": "MAC0428",
+    "name": "Redes de Computadores",
+    "area": 1
+  },
+  {
+    "code": "MAC0429",
+    "name": "Sistemas em Tempo Real",
+    "area": 1
+  },
+  {
     "code": "MAC0430",
     "name": "Algoritmos e Complexidade de Computação",
     "area": 0
